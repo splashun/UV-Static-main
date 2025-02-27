@@ -1,15 +1,312 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Redirect Page</title>
-  <script>
-    window.onload = function() {
-      window.location.href = "static/"; // Replace with your desired URL
-    };
-  </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDNZVRDPBD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-YDNZVRDPBD');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>bos <3</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        #contentFrame {
+            margin: 0px;
+            padding: 0px;
+            border: none;
+            display: block;
+            height: 100%;
+            width: 100%;
+            border: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #backgroundImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('/images/homebg.jpg');
+            filter: blur(10px);
+        }
+
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mainDialog {
+            width: 350px;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ffffff;
+        }
+
+        #dialogText {
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        #passArea {
+            padding: 10px;
+        }
+
+        #pass {
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
+            height: 40px;
+            font-size: 28px;
+            padding: 5px 5px 5px 5px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            background-color: inherit;
+            color: white;
+        }
+
+        #submitPass {
+            font-size: 18px;
+            padding: 12px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: inherit;
+            border: 1px solid #ffffff;
+            color: white;
+            cursor: pointer;
+            float: right;
+            transition: 0.1s ease-in-out;
+        }
+
+        #submitPass:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        #messageWrapper {
+            margin-top: 10px;
+            color: red;
+            font-size: 14px;
+            float: left;
+        }
+
+        .notifyText {
+            color: #4CAF50;
+        }
+
+        #invalidPass {
+            display: none;
+            color: red;
+        }
+        #success {
+            display: none;
+            color: green;
+        }
+        #arrow {
+            transition: transform 0.3s ease;
+            display: inline-block;
+            margin-left: 2px;
+        }
+
+        #submitPass:hover #arrow {
+            transform: translate(5px);
+        }
+    </style>
 </head>
 <body>
-  <h1>Redirecting...</h1>
-  <p>If you are not redirected, <a href="static/">click here</a>.</p>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="pwdArea">
+        <div id="backgroundImage"></div>
+        <div id="dialogWrap">
+            <div id="mainDialog">
+                <div id="dialogText"><b>This page is password protected.</b></div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Enter Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Incorrect Password.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                        </span>
+                        <button id="submitPass" type="button">Go <span id="arrow">&rarr;</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function() {
+
+            var pl = "PwqdH/zT6VLEMlVj3m5bTpLmKkOPFV6XMk+V8P/zt8IR9IqD9dsW9fdauP4xXjSE8GSoa7hoB27Tsb5W3IvoH8t7JzhXifYUID9BoNztHvQyZWJ8MsQQ1kTptfv7fvj/Le4ZMVyu2CPesZEZxeCOrV53Rrn2X52ZXuJeZRUX/uJatw+bBmgAK7S7p4dA8Y6q5XX80YFsoOYflK+aDIeZouSgHliqENKv1dnbibgWNnrnLnmc4y5moPs2m+5QmmuV/ux6GAzZCoZ9d9/RjfZfuqytFpU2rBWC1wZ7a9ZBC8WvwVIOEFgV0lBGNPpCxvFXlUt+l6c5P3KQkXrhBffC4rpQqF3lGQ5+XR7DX6izDVAR1WshhnrYarT6R9GHQOO/iVj+Z8yVKx0AZSfpO7uiyhLGMlDublFRZ5Aq47N+HDYogwKPUibv96U1/P4d8EKOC+E/nSPGELRc2Lmiuwmw3AixlUVWv8FTcF+v6o4V4QF8PF1QoQwJ8j7YJ7Dh9C7G0rZD";
+
+            var submitPass = document.getElementById('submitPass');
+            var passEl = document.getElementById('pass');
+            var invalidPassEl = document.getElementById('invalidPass');
+            var trycatcherror = document.getElementById('trycatcherror');
+            var successEl = document.getElementById('success');
+            var contentFrame = document.getElementById('contentFrame');
+
+            // Sanity checks
+
+            if (pl === "") {
+                submitPass.disabled = true;
+                passEl.disabled = true;
+                alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+                return;
+            }
+
+            if (!isSecureContext) {
+                document.querySelector("#passArea").style.display = "none";
+                document.querySelector("#securecontext").style.display = "block";
+                return;
+            }
+
+            if (!crypto.subtle) {
+                document.querySelector("#passArea").style.display = "none";
+                document.querySelector("#nocrypto").style.display = "block";
+                return;
+            }
+
+            function str2ab(str) {
+                var ustr = atob(str);
+                var buf = new ArrayBuffer(ustr.length);
+                var bufView = new Uint8Array(buf);
+                for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                    bufView[i] = ustr.charCodeAt(i);
+                }
+                return bufView;
+            }
+
+            async function deriveKey(salt, password) {
+                const encoder = new TextEncoder()
+                const baseKey = await crypto.subtle.importKey(
+                    'raw',
+                    encoder.encode(password),
+                    'PBKDF2',
+                    false,
+                    ['deriveKey'],
+                )
+                return await crypto.subtle.deriveKey(
+                    { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                    baseKey,
+                    { name: 'AES-GCM', length: 256 },
+                    true,
+                    ['decrypt'],
+                )
+            }
+
+            async function doSubmit(evt) {
+                submitPass.disabled = true;
+                passEl.disabled = true;
+
+                let iv, ciphertext, key;
+
+                try {
+                    var unencodedPl = str2ab(pl);
+
+                    const salt = unencodedPl.slice(0, 32)
+                    iv = unencodedPl.slice(32, 32 + 16)
+                    ciphertext = unencodedPl.slice(32 + 16)
+
+                    key = await deriveKey(salt, passEl.value);
+                } catch (e) {
+                    trycatcherror.style.display = "inline";
+                    console.error(e);
+                    return;
+                }
+
+                try {
+                    const decryptedArray = new Uint8Array(
+                        await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                    );
+
+                    let decrypted = new TextDecoder().decode(decryptedArray);
+
+                    if (decrypted === "") throw "No data returned";
+
+                    const basestr = '<base href="." target="_top">';
+                    const anchorfixstr = `
+                        <script>
+                            Array.from(document.links).forEach((anchor) => {
+                                const href = anchor.getAttribute("href");
+                                if (href.startsWith("#")) {
+                                    anchor.addEventListener("click", function(e) {
+                                        e.preventDefault();
+                                        const targetId = this.getAttribute("href").substring(1);
+                                        const targetEl = document.getElementById(targetId);
+                                        targetEl.scrollIntoView();
+                                    });
+                                }
+                            });
+                        <\/script>
+                    `;
+
+                    // Set default iframe link targets to _top so all links break out of the iframe
+                    if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                    else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                    else decrypted = basestr + decrypted;
+
+                    // Fix fragment links
+                    if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                    else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                    else decrypted = decrypted + anchorfixstr;
+
+                    contentFrame.srcdoc = decrypted;
+
+                    successEl.style.display = "inline";
+                    setTimeout(function () {
+                        pwdArea.style.display = "none";
+                    }, 400);
+                } catch (e) {
+                    invalidPassEl.style.display = "inline";
+                    passEl.value = "";
+                    submitPass.disabled = false;
+                    passEl.disabled = false;
+                    console.error(e);
+                    return;
+                }
+            }
+
+            submitPass.onclick = doSubmit;
+            passEl.onkeypress = function(e) {
+                if (!e) e = window.event;
+                var keyCode = e.keyCode || e.which;
+                invalidPassEl.style.display = "none";
+                if (keyCode == '13') {
+                    // Enter pressed
+                    doSubmit();
+                    return false;
+                }
+            }
+        })();
+    </script>
 </body>
 </html>

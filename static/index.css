@@ -9,12 +9,16 @@
 body {
     background-image: url(../images/homebg.jpg);
     background-color: #000;
+    background-size: cover;
     color: #fff;
     margin: 0;
-    margin-top: 30vh;
-    margin-bottom: 25vh;
     padding: 0;
     font-family: 'Raleway', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   
