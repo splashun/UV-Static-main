@@ -166,3 +166,7 @@ body {
 #popularSites > img:hover {
   filter:grayscale(100) brightness(150%) opacity(0.5) drop-shadow(0 0 0 rgb(111, 32, 237));
 }
+.homepage-container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
