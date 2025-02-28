@@ -19,6 +19,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Ultraviolet</title>
     <style>
         html,
@@ -160,11 +161,11 @@
             <div id="mainDialog">
                 <div id="dialogText"><b>This page is password protected.</b></div>
                 <div id="passArea">
-                    <p id="passwordPrompt">Enter Password</p>
+                    <p id="passwordPrompt">Enter Password  <i class="fa-solid fa-info-circle" onclick="alert('Password: a')" style="cursor: pointer; margin-left: 3px;"></i></p>
                     <input id="pass" type="password" name="pass" autofocus>
                     <div>
                         <span id="messageWrapper">
-                            <span id="invalidPass" class="error">Incorrect Password.</span>
+                            <span id="invalidPass" class="error">Incorrect password. The correct password is <b>a</b>.</span>
                             <span id="success" class="notifyText">Success!</span>
                         </span>
                         <button id="submitPass" type="button">Go <span id="arrow">&rarr;</span></button>
