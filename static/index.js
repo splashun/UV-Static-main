@@ -38,3 +38,38 @@ function autofill(url) {
   address.value = url;
   form.requestSubmit(); // Automatically submit the form
 }
+function toggleFullscreen() {
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
+  
+  // Check if we are currently in fullscreen mode
+  if (isFullscreen()) {
+      // If in fullscreen, exit fullscreen and update button
+      fullscreenBtn.classList.remove('fa-compress');
+      fullscreenBtn.classList.add('fa-expand');
+      document.exitFullscreen();
+  } else {
+      // If not in fullscreen, enter fullscreen and update button
+      fullscreenBtn.classList.remove('fa-expand');
+      fullscreenBtn.classList.add('fa-compress');
+      document.documentElement.requestFullscreen();
+  }
+}
+
+// Helper function to check if we're in fullscreen mode
+function isFullscreen() {
+  return (
+      document.fullscreenElement ||
+      document.mozFullScreen ||
+      document.msFullscreenElement ||
+      document.webkitFullscreenElement
+  );
+}
+
+// Initialize the button's state when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  if (isFullscreen()) {
+      document.getElementById('fullscreen-btn').classList.add('fa-compress');
+  } else {
+      document.getElementById('fullscreen-btn').classList.add('fa-expand');
+  }
+});

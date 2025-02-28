@@ -1,20 +1,28 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDNZVRDPBD"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-YDNZVRDPBD');
     </script>
+    <script>if (this != top) {
+            top.document.location.href = this.document.location.href;
+        }
+        if (this != top) {
+            top.location.href = this.location.href;
+        }</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <title>Ultraviolet</title>
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             width: 100%;
             height: 100%;
@@ -126,10 +134,12 @@
             display: none;
             color: red;
         }
+
         #success {
             display: none;
             color: green;
         }
+
         #arrow {
             transition: transform 0.3s ease;
             display: inline-block;
@@ -141,6 +151,7 @@
         }
     </style>
 </head>
+
 <body>
     <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
     <div id="pwdArea">
@@ -163,9 +174,9 @@
         </div>
     </div>
     <script>
-        (function() {
+        (function () {
 
-            var pl = "PwqdH/zT6VLEMlVj3m5bTpLmKkOPFV6XMk+V8P/zt8IR9IqD9dsW9fdauP4xXjSE8GSoa7hoB27Tsb5W3IvoH8t7JzhXifYUID9BoNztHvQyZWJ8MsQQ1kTptfv7fvj/Le4ZMVyu2CPesZEZxeCOrV53Rrn2X52ZXuJeZRUX/uJatw+bBmgAK7S7p4dA8Y6q5XX80YFsoOYflK+aDIeZouSgHliqENKv1dnbibgWNnrnLnmc4y5moPs2m+5QmmuV/ux6GAzZCoZ9d9/RjfZfuqytFpU2rBWC1wZ7a9ZBC8WvwVIOEFgV0lBGNPpCxvFXlUt+l6c5P3KQkXrhBffC4rpQqF3lGQ5+XR7DX6izDVAR1WshhnrYarT6R9GHQOO/iVj+Z8yVKx0AZSfpO7uiyhLGMlDublFRZ5Aq47N+HDYogwKPUibv96U1/P4d8EKOC+E/nSPGELRc2Lmiuwmw3AixlUVWv8FTcF+v6o4V4QF8PF1QoQwJ8j7YJ7Dh9C7G0rZD";
+            var pl = "ikPaXasJUWPZQG2rIkISpksSbfV0ATsvU3jrALvMsp7lhedYRxOQpkrgYKjyLbNx7nkJZpyIyna05tCndcz3Wb1Jo6cIxGlL5XRZ1FheSKYshOHav2UZj9UmkyPi5KAZgj3l5WbYMlK/PcNGam4l1Op/4t1tu67EcYgxCdl0ifa3+zo+1xQ+ZuFbjChVBjKlmo0vhZQky2hiDrpG4TsD0SqEgF1Rjs0XtTBts3LzcGQMKP/9CDpSvThki4WPcODOOSA0Rsh0IC3x2l4BtplP4N/t3Vfp4TQjbo0QtnHIVPv/ILFx7J+BTdSfsFLLIWF3ncClvj10k4FJd3IprqHsTdaMCMB3anLW9HjPOYLkhaLx1v/e463OcdibFZ+TwGSe1C4XUjteoQ7TNjP6HYb0idmpag62lYrYqIya2x+enydDFaK9278++/1s/GQjRtZhG6Wcw87HLQMC4ZhxPGakN2Xrzsu4XKkb/zW971Xyw9sDGiXJ+RoEu+FK1ufiOputZwxkrt+9mKijLwaTkQC4H0yuKbn6";
 
             var submitPass = document.getElementById('submitPass');
             var passEl = document.getElementById('pass');
@@ -199,7 +210,7 @@
                 var ustr = atob(str);
                 var buf = new ArrayBuffer(ustr.length);
                 var bufView = new Uint8Array(buf);
-                for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                for (var i = 0, strLen = ustr.length; i < strLen; i++) {
                     bufView[i] = ustr.charCodeAt(i);
                 }
                 return bufView;
@@ -296,7 +307,7 @@
             }
 
             submitPass.onclick = doSubmit;
-            passEl.onkeypress = function(e) {
+            passEl.onkeypress = function (e) {
                 if (!e) e = window.event;
                 var keyCode = e.keyCode || e.which;
                 invalidPassEl.style.display = "none";
@@ -309,4 +320,5 @@
         })();
     </script>
 </body>
+
 </html>
