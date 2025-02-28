@@ -6,11 +6,7 @@
       url('../font/raleway.ttf') format('truetype'),
       url('../font/raleway.otf') format('otf');
 }
-:fullscreen,  ::backdrop{
-  background-image: url(../images/homebg.jpg);
-  background-color: #000;
-  background-size: cover;
-}
+
 body {
     background-image: url(../images/homebg.jpg);
     background-color: #000;
