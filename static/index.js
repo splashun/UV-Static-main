@@ -20,24 +20,6 @@ const error = document.getElementById("uv-error");
  */
 const errorCode = document.getElementById("uv-error-code");
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  try {
-    await registerSW();
-  } catch (err) {
-    error.textContent = "Failed to register service worker.";
-    errorCode.textContent = err.toString();
-    throw err;
-  }
-
-  const url = search(address.value, searchEngine.value);
-  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-});
-function autofill(url) {
-  address.value = url;
-  form.requestSubmit(); // Automatically submit the form
-}
 const texts = [
   "flint street",
   "im",
@@ -101,17 +83,47 @@ const texts = [
   "-.-- --- ..- .-. / .--. .- .-. . -. - ... / -.. --- -. - / .-.. --- ...- . / -.-- --- ..-",
 ];
 
-// Function to initialize the text
-function initializeText() {
-  // Get a reference to the text container
-  const textContainer = document.getElementById('randomtext');
+const textContainer = document.getElementById('randomtext');
+
+// Function to set text with fade-in effect
+function setTextWithFade() {
+  // Reset fade-in classes
+  textContainer.classList.add('fade-in');
+  textContainer.classList.remove('visible');
   
-  // Generate a random index
-  const randomIndex = Math.floor(Math.random() * texts.length);
+  // Generate a random index using bitwise operation for better performance
+  const randomIndex = (Math.random() * texts.length) >> 0;
   
   // Set the text content
   textContainer.textContent = texts[randomIndex];
+  
+  // Add a small delay before adding the visible class to trigger the fade-in
+  setTimeout(() => {
+    textContainer.classList.add('visible');
+    
+    // Remove fade-in classes after animation completes
+    setTimeout(() => {
+      textContainer.classList.remove('fade-in', 'visible');
+    }, 200); // Match the transition duration
+  }, 50); // Small delay to ensure the classes are applied correctly
 }
+setTextWithFade();
 
-// Call the function when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', initializeText);
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  try {
+    await registerSW();
+  } catch (err) {
+    error.textContent = "Failed to register service worker.";
+    errorCode.textContent = err.toString();
+    throw err;
+  }
+
+  const url = search(address.value, searchEngine.value);
+  location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+});
+function autofill(url) {
+  address.value = url;
+  form.requestSubmit(); // Automatically submit the form
+}
