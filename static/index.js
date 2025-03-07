@@ -85,6 +85,7 @@ const texts = [
   "sneetch",
   "purleece",
   "birr",
+  "one does not simply go to waffle house in fayetteville",
 ];
 
 const textContainer = document.getElementById('randomtext');
