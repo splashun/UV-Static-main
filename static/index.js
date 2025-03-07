@@ -31,7 +31,7 @@ const texts = [
   "everytime i lie i cut down a cherry tree",
   "no using the letter g or the letter f",
   "rule 2: tefflon pans are banned",
-  "po lice beind me",
+  "po lice behind me",
   "i have three demons",
   "frenzy, diablo, killer",
   "the phas code is 614111",
@@ -40,7 +40,7 @@ const texts = [
   "four tick marks",
   "torftastic",
   "rule 43: no memes in #general",
-  "i cant do shellshockers pls stop asking",
+  "i CAN do shellshockers pls KEEP asking",
   "press the android button for roblox",
   "press the xbox button for fortnite",
   "is liking femboys gay?",
@@ -81,6 +81,10 @@ const texts = [
   "maurnkey",
   "<marquee>",
   "-.-- --- ..- .-. / .--. .- .-. . -. - ... / -.. --- -. - / .-.. --- ...- . / -.-- --- ..-",
+  "gamers",
+  "sneetch",
+  "purleece",
+  "birr",
 ];
 
 const textContainer = document.getElementById('randomtext');
